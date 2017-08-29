@@ -6,28 +6,26 @@
 
 package main
 
-import ("github.com/wyler-m/fibbalgo"
+import (
+		"encoding/json"
 		"log"
 		"net/http"
-		"math/big"
 		"github.com/gorilla/mux"
-		// "fmt"
 		)
 
-// func timeHandler(w http.ResponseWriter, r *http.Request) {
-//   n := new(big.Int).SetUint64(20)
-//   fib := fibbalgo.TwokFib(n)
-//   w.Write([]byte("fib("+n.String()+") = " +fib.String()))
-// }
+
 
 
 func fibHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-    nString := vars["n"]
-    n := new(big.Int)
-    n.SetString(nString,10)
-    fib := fibbalgo.TwokFib(n)
-    w.Write([]byte("fib("+nString+") = " + fib.String()))
+	nString := vars["n"]
+	fibout := fiboutput{ N: nString, Nthfibonacci: fib_processer(nString)}
+	// w.Write([]byte("fib("+nString+") = (v2)" + fibout))
+	jsonfile := json.NewEncoder(w).Encode(fibout)
+	log.Println(jsonfile)
+	log.Println(nString)
+	log.Println(fibout)
+	// w.Write([]byte(json.NewEncoder(w).Encode(fibout)))
 }
 
 func main() {
