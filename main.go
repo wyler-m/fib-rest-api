@@ -1,8 +1,9 @@
-//get server working
-// get response for random numbers
+//get server working - done
+// get response for random numbers - done
 // write algorithm - done
-// write database save methods - done
 // write unit tests
+// logging
+// write error handleing
 
 package main
 
@@ -13,9 +14,6 @@ import (
 		"github.com/gorilla/mux"
 		)
 
-
-
-
 func fibHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	nString := vars["n"]
@@ -24,7 +22,6 @@ func fibHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/fib/{n}", fibHandler)
 	log.Println("Listening.........")
