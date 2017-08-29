@@ -20,12 +20,7 @@ func fibHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	nString := vars["n"]
 	fibout := fiboutput{ N: nString, Nthfibonacci: fib_processer(nString)}
-	// w.Write([]byte("fib("+nString+") = (v2)" + fibout))
-	jsonfile := json.NewEncoder(w).Encode(fibout)
-	log.Println(jsonfile)
-	log.Println(nString)
-	log.Println(fibout)
-	// w.Write([]byte(json.NewEncoder(w).Encode(fibout)))
+	json.NewEncoder(w).Encode(fibout)
 }
 
 func main() {
