@@ -14,6 +14,12 @@ import (
 		"github.com/gorilla/mux"
 		)
 
+//json structure for returning fibonacci numbers 
+type fiboutput struct {
+	N string `json:"n"`
+	Nthfibonacci string `json:"fibonacci(n)"`
+}
+
 func fibHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	nString := vars["n"]

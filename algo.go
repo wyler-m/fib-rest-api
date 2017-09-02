@@ -56,6 +56,8 @@ func fib(r *big.Int) *big.Int{
 	}
 }
 
+
+
 func fib_processer(nString string) string {
 	n := new(big.Int)
 	n.SetString(nString,10)
