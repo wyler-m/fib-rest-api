@@ -1,10 +1,3 @@
-//get server working - done
-// get response for random numbers - done
-// write algorithm - done
-// write unit tests
-// logging
-// write error handleing
-
 package main
 
 import (
@@ -33,4 +26,3 @@ func main() {
 	log.Println("Listening.........")
 	http.ListenAndServe(":8080",router)
 }
-
